@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 数据直接在dom中绑定 -->
+    <input type="button" value="click me" onclick="hello()">
+    <input type="button" value="click me" id="hello">
+<script>
+//事件在dom中直接绑定
+    // function hello(){
+    //     alert("HELLO THE WORLD")
+    // }
+//事件在js中绑定
+    // document.getElementById("hello").onclick =function(){
+    //     alert("hello world")}
+//常规事件绑定只会执行最后一个绑定的时间
+    // var hello=document.getElementById("hello")
+    // hello.onclick=function(){
+    //     alert ("你好")
+    // }
+    // hello.onclick=function(){alert("你好啊")}
+
+    
+//事件在监听中绑定
+    var hello=document.getElementById("hello")
+    hello.addEventListener("click",hello1);
+    hello.addEventListener("click",hello2);
+    function hello1(){
+        alter ("hello1");
+    }
+    function hello2(){
+        alter ("hello2");
+    }
+
+</script>
+</body>
+
+</html>
