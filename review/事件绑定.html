@@ -9,7 +9,8 @@
 <body>
     <!-- 数据直接在dom中绑定 -->
     <input type="button" value="click me" onclick="hello()">
-    <input type="button" value="click me" id="hello">
+    <input type="button" value="事件监听click me" id="hello">
+<input type="button" value="封装事件监听click me" id="hello">
 <script>
 //事件在dom中直接绑定
     // function hello(){
@@ -30,13 +31,26 @@
     var hello=document.getElementById("hello")
     hello.addEventListener("click",hello1);
     hello.addEventListener("click",hello2);
+    hello.removeEventListener("click",hello2);//用来删除事件
     function hello1(){
-        alter ("hello1");
+        alert ("hello1");
     }
     function hello2(){
-        alter ("hello2");
+        alert ("hello2");
     }
-
+    //封装兼容性的事件。
+function addEventHandler(target,type,fn)
+    if (target.addEventListener){
+        target.addEventListener(type,fn)
+    }else{
+        target.attachEvent("on"+type,fn)
+    }
+function removeEventHandler(tagget,type,fn)
+    if(target.removeEventListener){
+        target.removeEventListener(type,fn)
+    }else{
+        target.removeEventListener("on"+type,fn)
+    }
 </script>
 </body>
 

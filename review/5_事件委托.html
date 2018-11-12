@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 事件委托就是把父元素绑定事件，当子元素被选中的时候自动添加事件 -->
+    <ul id="list">
+        <li id="item1">item1</li>
+        <li id="item2">item2</li>
+        <li id="item3">item3</li>
+    </ul>
+<script>
+    // 这里把事件绑定到了document上
+//     var item1=document.getElementById("item1");
+//     var item2=document.getElementById("item2");
+//     var item3=document.getElementById("item3");
+// document.addEventListener("click",function(event){
+//     var target =event.target;
+//     if(target==item1){
+//         alert("1");
+//     }else if(target==item2){
+//         alert("2");
+//     }else if(target==item3){
+//         alert("3");
+//     }
+// })
+//  传统写法中
+//  var list=document.getElementById("list");
+//  var item=list.getElementsByTagName("li");
+//  for (var i=0;i<item.length;i++){
+//      (function(i){
+//          item[i].onclick=function(){
+//              alert(item[i].innerHTML);
+//          }
+
+//      })(i)
+//  }
+//  var node=document.createElement("li");
+//  var textnode=document.createTextNode("item4");
+//  node.appendChild(textnode);
+//  list.appendChild(node);
+// 换一种写法让新添加的也可以获取事件
+// var list=document.getElementById("list");
+// document.addEventListener("click",function(event){
+//     var target=event.target;
+//     if(target.nodeName=="LI"){
+//         alert(target.innerHTML);
+
+//     }
+// })
+// var node=document.createElement("li");
+// var textnode=document.createTextNode("item4");
+// node.appendChild(textnode);
+// list.appendChild(node);
+</script>
+</body>
+</html>
