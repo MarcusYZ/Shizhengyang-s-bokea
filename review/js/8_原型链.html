@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//获取dom节点
+function Elem (id){
+		this.elem =document.getElementById(id)//
+
+}
+//用elem的显示原型.html获取一个函数
+//让elem指向当前上面定义的获取到的dom节点
+//判断如果存在val的话就会返回dom节点中val的值
+Elem.prototype.html= function(val){
+	var elem=this.elem
+	if(val){
+		elem.innerHTML=val
+		return this// 返回整个对象
+//如果不存在的话就返回dom节点的html结构
+	}else{
+		return elem.innerHTML
+	}
+}
+//给显示原型一个on的函数 
+Elem.prototype.on =function(type,fn){
+	var elem=this.elem
+	elem.addEventListener(type,fn)
+}
+var div1 =new Elem("div1")
+// console.log(div1.html())
+div1.html('<p>wozuishuai</p>')
+div1.on('click',function(){
+	alert('hello')
+})
+// 上面的方式是普通操作，当函数的最后返回this了就可以使用原型链，让调用后跟调用
+// div1.html('<p>wozuishuai</p>').on('click',function(){
+// 	alert('hello')
+// }) 
+// 如上的.on,如果在on的函数创建时还返回this就可以在后面继续做操作
+</script>
+</body>
+</html>

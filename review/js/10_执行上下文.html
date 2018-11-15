@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	fn()
+	function fn(){
+
+	}
+	fn1 //这里fn1会报错，因为提升的只是函数声明
+	var fn1=function(){
+
+	}
+//全局
+console.log(a)
+var a=100
+
+fn("zhangsan")
+function fn(name){
+	console.log(this)
+	console.log(arguments)
+ 	age=20
+ 	console.log(name,age)
+ 	var age
+
+ 	bar(100)
+ 	function bar(num){
+ 		console.log(num)
+ 	}
+ }
+//众多的script标签中变量会被提前，函数声明提前
+// 函数中会把变量 声明 this arguments的值 提前、
+</script>
+</body>
+
+</html>

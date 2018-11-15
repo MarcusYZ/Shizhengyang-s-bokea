@@ -23,20 +23,24 @@
     <div id="app" class="text-center">
         <h1>todolist</h1>
         <hr>
-        <form class="form-inline" @submit.prevent>
+        <form class="form-inline" @submit.prevent ><!--阻止默认事件-->
             <div class="form-group">
+                <!-- v-model数据双向绑定 -->
                 <input v-model.trim="keyword" type="text" class="form-control" placeholder="请输入商品名称">
             </div>
+            <!-- click事件，submit提交 -->
             <button @click="search" type="submit" class="btn btn-default glyphicon glyphicon-search">搜索</button>
         </form>
 
         <form class="form-inline add-form" @submit.prevent>
             <div class="form-group">
                 <label for="product-name">商品名称</label>
+               <!-- v-model.trim把用户输入的前后空格去掉 -->
                 <input v-model.trim="productName" type="text" class="form-control" id="product-name" placeholder="请输入商品名称">
             </div>
             <div class="form-group">
                 <label for="product-price">商品价格</label>
+                <!-- .number将用户输入的字符串转化成数字 -->
                 <input v-model.number="productPrice" type="number" class="form-control" id="product-price" placeholder="商品价格">
             </div>
             <button @click="add" type="submit" class="btn btn-default glyphicon glyphicon-plus">增加</button>
@@ -45,6 +49,7 @@
 
         <table class="table table-bordered">
             <thead>
+
                 <tr class="warning">
                     <td>选择</td>
                     <td>商品名称</td>
@@ -54,6 +59,7 @@
 
             </thead>
             <tbody>
+                v-for
                 <tr @click="select(product)" v-for="(product, index) in productList" :class=" product.isRed?'red': '' ">
                     <td>
                         <input @click.stop type="checkbox" v-model="checkedList" :value="index">
@@ -167,9 +173,7 @@
                 }
             }
         });
-
-
-    </script>
+</script>    
 </body>
 
 </html>

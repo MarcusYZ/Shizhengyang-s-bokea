@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+//js没有块级作用域
+ if (true) {
+ 	var name='zhangsan'
+ }	
+ console.log(name)	
+//js有函数作用域起到隔绝作用，尽量不要把变量写到全局中污染变量
+ var a=100
+ function fn(){
+ 	var b=200
+ 	console.log(a)
+ 	console.log(b)
+ }
+ fn()
+ //作用域链
+ var a=100
+ function F1(){
+ 	var b=200
+ 	function F2(){
+ 		var c=300
+ 		console.log(a)
+ 		console.log(b)
+ 		console.log(c)
+
+ 	}
+ 	F2()
+ }
+ F1()
+
+
+
+</script>
+</body>
+</html>
