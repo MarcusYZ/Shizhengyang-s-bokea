@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<div id="div1">
+    <p id="p1">激活</p>
+    <p id="p2">取消</p>
+    <p id="p3">取消</p>
+    <p id="p4">取消</p>
+</div>
+<script>
+    function bindEvent(elem,type,selector,fn){
+        if(selector==null){
+        fn=selector
+        selector==null
+        }
+        elem.addEventListener(type,function(e){
+            var target
+            if(selector){
+//target 事件属性可返回事件的目标节点（触发该事件的节点），如生成事件的元素、文档或窗口。
+                target=e.target
+                if(target.matches(selector)){
+                    fn.call(target,e)
+                }
+            }else{
+                fn(e)
+            }
+        })
+
+
+    }
+  
+</script>
+<body>
+   
+</body>
+</html>

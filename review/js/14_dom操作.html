@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">你好</p>
+        <p id="p2">hhh</p>
+    </div>
+    <br>
+    <div id="div1">
+        <p id="p3">祝你快乐</p>
+        <p id="p4">祝你幸福</p>
+    </div>
+    <script>
+    var div1=document.getElementById('div1')
+    var childNodes=div1.childNodes
+    div1.removeChild(childNodes[0])
+
+    //dom的基本数据结构 是树
+    //property是一个js对象的属性的修改
+    //attribute是对html标签的属性的修改
+
+    var ua=navigator.userAgent
+    var isChrome=ua.indexOf('Chrome')
+    console.log(isChirome)
+   
+    
+    </script>
+</body>
+</html>
