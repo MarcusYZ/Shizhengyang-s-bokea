@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <xunhuan productname="衣服" productprice="123"></xunhuan>
+        <xunhuan productname="裤子" productprice="223"></xunhuan>
+
+    </div>
+    <script src="vue.js"></script>
+    <script> 
+    Vue.component('xunhuan',{
+        data () {
+            return {
+                productl
+            }
+        },
+        props:['productname','productprice'],
+        template:
+        `
+        <li>
+            <span>{{productname}}</span>
+            <span>{{productprice}}</span>
+        </li>
+        
+        `
+
+
+
+    })
+        new Vue({
+        el:"#app",
+        data:""
+    })
+    
+    </script>
+   
+</body>
+</html>
