@@ -10,9 +10,9 @@
 <body>
 
     <div id="app">
-        <xunhuan @click.native="alert(item)" v-for="(item,index) in productList" :key="index" 
-        :items="item"
         
+        <xunhuan v-for="(post,index) in productList" :key="index" 
+        :post="post"
         ></xunhuan>
        
     </div>
@@ -24,12 +24,12 @@
               
             }
         },
-        props:['items'],
+        props:['post'],
         template:
         `
         <li>
-            <span>{{items.productName}}</span>
-            <span>{{items.productPrice}}</span>
+            <span>{{post.productname}}</span>
+            <span>{{post.productprice}}</span>
         </li>
         
         `
@@ -54,12 +54,7 @@
                     productPrice: 222,
                     isRed: false
                 }
-                ]},
-                methods:{
-                    alert(item){
-                        console.log(item.productName)
-                    }
-                }
+                ]}
     })
     
     </script>

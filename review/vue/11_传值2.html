@@ -10,10 +10,13 @@
 <body>
 
     <div id="app">
-        <xunhuan @click.native="alert(item)" v-for="(item,index) in productList" :key="index" 
-        :items="item"
-        
+        <div :style="{ fontSize: postFontSize + 'em' }">
+        <xunhuan v-for="(item,index) in productList" :key="index" 
+        :productname="item.productName"
+        :productprice="item.productPrice"
+        @click.native="select"
         ></xunhuan>
+        </div>
        
     </div>
     <script src="vue.js"></script>
@@ -24,13 +27,15 @@
               
             }
         },
-        props:['items'],
+        props:['productname','productprice'],
         template:
         `
-        <li>
-            <span>{{items.productName}}</span>
-            <span>{{items.productPrice}}</span>
-        </li>
+        <div>
+            <span>{{productname}}</span>
+            <button>点我</button>
+            
+            <span>{{productprice}}</span>
+        </div>
         
         `
 
@@ -54,10 +59,11 @@
                     productPrice: 222,
                     isRed: false
                 }
-                ]},
+                ],
+            postFontSize: 1},
                 methods:{
-                    alert(item){
-                        console.log(item.productName)
+                    select(){
+                        postFontSize+=0.1
                     }
                 }
     })
